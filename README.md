@@ -1,8 +1,8 @@
-# CS 466 Final Project
+# CS 486 Final Project
 ## By: Lillian Nicholas
 
 ### Description
-
+For my CS486 final project, I chose to manually model a robot. The modeling heirarchy of my model has a depth of four and my model includes the following primitives: boxes, spheres, and cylinders. My project also includes a GUI, which allows the viewer to ajdust the lighting of the scene and the position the robot is in. The viewer has the option the adjust the ambient and point light intensity as well as the y rotation of the neck and the x and z rotation of the left and right shoulders, elbows, wrists, hips, knees, and ankles.
 
 ### Sources
 #### Source 1 from threejs.org/examples: Animated Robot Model
