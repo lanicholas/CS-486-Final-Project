@@ -16,7 +16,7 @@
 
 [Link to code for Lighting and Shadows example](https://github.com/mrdoob/three.js/blob/master/examples/webgl_lights_hemisphere.html)
 
-##### Source 3 from threejs.org/examples: Simple Particle System
+#### Source 3 from threejs.org/examples: Simple Particle System
 [Link to view Simple Particle System](https://threejs.org/examples/?q=par#webgl_buffergeometry_custom_attributes_particles)
 
 Code for source 3
@@ -30,4 +30,4 @@ Code for source 3
 ![Image of Initial Rendering](https://lanicholas-loyola.tinytake.com/media/8fef39?filename=1544373202999_09-12-2018-11-33-21.png&sub_type=thumbnail_preview&type=attachment&width=1199&height=564)
 
 #### Video of Animation and using GUI
-![Video of Animation and using GUI](https://tinytake.s3.amazonaws.com/pulse/lanicholas-loyola/attachments/9432960/TinyTake09-12-2018-11-48-37.mp4)
+[![Video of Animation and Using GUI](http://img.youtube.com/vi/vscoPHECUnk&feature=youtu.be/0.jpg)](https://www.youtube.com/watch?v=vscoPHECUnk&feature=youtu.be)
