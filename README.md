@@ -139,7 +139,7 @@ function render()
 	renderer.render( scene, camera );
 }
 ```
-Lastly, I coded the animate function which consists of the following three function calls: RequestAnimationFrame(), render(), and stats.update();.
+Lastly, I coded the animate function which consists of the following three function calls: requestAnimationFrame(), render(), and stats.update();.
 
 ### Result
 #### Image of Initial Rendering 
