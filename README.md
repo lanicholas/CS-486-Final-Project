@@ -27,17 +27,13 @@ Code for source 3
 
 ### Result
 
+![Image](https://lanicholas-loyola.tinytake.com/media/8fef39?filename=1544373202999_09-12-2018-11-33-21.png&sub_type=thumbnail_preview&type=attachment&width=1199&height=564)
 
 
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
 ```markdown
 Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
 
 - Bulleted
 - List
