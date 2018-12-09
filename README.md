@@ -21,7 +21,7 @@ For my CS486 final project, I chose to manually model a robot. The modeling heir
 [Link to code for Simple Particle System example](https://github.com/mrdoob/three.js/blob/master/examples/webgl_buffergeometry_custom_attributes_particles.html)
 
 ### Implementation
-To implement my project, I referenced the code from labs 4 and 5 and the code from the three.js examples listed above. First, I set up the renderer, camera, scene, and ambient and point lighting by referencing the code from labs 4 and 5. Also, I added GUI controls, which allow the viewer to change the intensity of the ambient and point lights. Next, I added the the ground and the grid to the scene using the following small piece of code from source 1. 
+To implement my project, I referenced the code from labs 4 and 5 and the code from the three.js examples listed above. First, I set up the renderer, camera, scene, and ambient and point lighting by referencing the code from labs 4 and 5. Also, I added GUI controls, which allow the viewer to change the intensity of the ambient and point lights. Next, I added the ground and the grid to the scene using the following small piece of code from source 1. 
 
 ```
 var mesh = new THREE.Mesh( new THREE.PlaneBufferGeometry( 2000, 2000 ), new THREE.MeshPhongMaterial( { color: 0x999999, depthWrite: false } ) );
@@ -31,9 +31,35 @@ var grid = new THREE.GridHelper( 200, 40, 0x000000, 0x000000 );
 grid.material.opacity = 0.2;
 grid.material.transparent = true;
 scene.add( grid );
+```
+Then, I created the model of the robot using the primitives I listed above and by grouping the primitives together to create a modeling heirarchy. The entire model is contained in the body group. The body group has five group added to it and they are the neck, left shoulder, right shoulder, left leg, and right leg groups. Both of the shoulder groups contain an elbow group, and each of the elbow groups contain a wrist group. Both of the leg groups contain a knee group, and each of the knee groups conatin an ankle group. After I created the model, I added additional GUI controls, which allow the viewer to adjust the y rotation of the neck and the x and z rotation of the left and right shoulders, elbows, wrists, hips, knees, and ankles. With these controls, the viewer can put the robot into any position they like. Next, I added a hemisphere and directional light to the scene in order to create shadows. To do this, I used the following piece of code from source 2. 
 
 ```
-Then, I created the model of the robot using the primitives I listed above and by grouping the primitives together to create a modeling heirarchy. The entire model is contained in the body group. The body group has five group added to it and they are the neck, left shoulder, right shoulder, left leg, and right leg groups. Both of the shoulder groups contain an elbow group, and each of the elbow groups contain a wrist group. Both of the leg groups contain a knee group, and each of the knee groups conatin an ankle group. After I created the model, I added additional GUI controls, which allow the viewer to adjust the y rotation of the neck and the x and z rotation of the left and right shoulders, elbows, wrists, hips, knees, and ankles. With these controls, the viewer can put the robot into any position they like. 
+hemiLight = new THREE.HemisphereLight( 0xffffff, 0xffffff, 0.6 );
+hemiLight.color.setHSL( 0.6, 1, 0.6 );
+hemiLight.groundColor.setHSL( 0.095, 1, 0.75 );
+hemiLight.position.set( 0, 50, 0 );
+scene.add( hemiLight );
+
+dirLight = new THREE.DirectionalLight( 0xffffff, 1 );
+dirLight.color.setHSL( 0.1, 1, 0.95 );
+dirLight.position.set( - 1, 1.75, 1 );
+dirLight.position.multiplyScalar( 30 );
+scene.add( dirLight );
+
+dirLight.castShadow = true;
+dirLight.shadow.mapSize.width = 2048;
+dirLight.shadow.mapSize.height = 2048;
+
+var d = 50;
+dirLight.shadow.camera.left = - d;
+dirLight.shadow.camera.right = d;
+dirLight.shadow.camera.top = d;
+dirLight.shadow.camera.bottom = - d;
+dirLight.shadow.camera.far = 3500;
+dirLight.shadow.bias = - 0.0001;
+```
+However, I altered the color and position of both of these lights in order to get the effect I desired. Also, I set the castShadow property for each primitve to true and the recieveShadow property for the ground to true, which allowed the shadow to render. 
 
 ### Result
 #### Image of Initial Rendering 
