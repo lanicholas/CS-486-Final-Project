@@ -17,10 +17,10 @@
 [Link to code for Lighting and Shadows example](https://github.com/mrdoob/three.js/blob/master/examples/webgl_lights_hemisphere.html)
 
 ##### Source 3 from threejs.org/examples: Simple Particle System
-[Link](https://threejs.org/examples/?q=par#webgl_buffergeometry_custom_attributes_particles)
+[Link to view Simple Particle System](https://threejs.org/examples/?q=par#webgl_buffergeometry_custom_attributes_particles)
 
 Code for source 3
-[Link](https://github.com/mrdoob/three.js/blob/master/examples/webgl_buffergeometry_custom_attributes_particles.html)
+[Link to code for Simple Particle System](https://github.com/mrdoob/three.js/blob/master/examples/webgl_buffergeometry_custom_attributes_particles.html)
 
 ### Implementation
 
