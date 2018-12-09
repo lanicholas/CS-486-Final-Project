@@ -32,7 +32,7 @@ grid.material.opacity = 0.2;
 grid.material.transparent = true;
 scene.add( grid );
 ```
-Then, I created the model of the robot using the primitives I listed above and by grouping the primitives together to create a modeling heirarchy. The entire model is contained in the body group. The body group has five group added to it and they are the neck, left shoulder, right shoulder, left leg, and right leg groups. Both of the shoulder groups contain an elbow group, and each of the elbow groups contain a wrist group. Both of the leg groups contain a knee group, and each of the knee groups conatin an ankle group. After I created the model, I added additional GUI controls, which allow the viewer to adjust the y rotation of the neck and the x and z rotation of the left and right shoulders, elbows, wrists, hips, knees, and ankles. With these controls, the viewer can put the robot into any position they like. Next, I added a hemisphere and directional light to the scene in order to create shadows. To do this, I used the following piece of code from source 2. 
+Then, I created the model of the robot using the primitives I listed above and by grouping the primitives together to create a modeling heirarchy. The entire model is contained in the body group. The body group has five group added to it and they are the neck, left shoulder, right shoulder, left leg, and right leg groups. Both of the shoulder groups contain an elbow group, and each of the elbow groups contain a wrist group. Both of the leg groups contain a knee group, and each of the knee groups conatin an ankle group. After I created the model, I added additional GUI controls, which allow the viewer to adjust the y rotation of the neck and the x and z rotation of the left and right shoulders, elbows, wrists, hips, knees, and ankles. With these controls, the viewer can put the robot into any position they like. Next, I added a hemisphere and directional light to the scene and shadowMap properties to the renderer in order to create shadows. To do this, I used the following piece of code from source 2. 
 
 ```
 hemiLight = new THREE.HemisphereLight( 0xffffff, 0xffffff, 0.6 );
@@ -59,7 +59,28 @@ dirLight.shadow.camera.bottom = - d;
 dirLight.shadow.camera.far = 3500;
 dirLight.shadow.bias = - 0.0001;
 ```
-However, I altered the color and position of both of these lights in order to get the effect I desired. Also, I set the castShadow property for each primitve to true and the recieveShadow property for the ground to true, which allowed the shadow to render. 
+However, I altered the color and position of both of these lights in order to get the effect I desired. Also, I set the castShadow property for each primitve to true and the recieveShadow property for the ground to true, which allowed the shadow to render properly. Then, I added the particle system to the background of the scene. To do this, I first added the following javascript code from source 3 to my .html file. 
+```
+<script type="x-shader/x-vertex" id="vertexshader">
+			attribute float size;
+			varying vec3 vColor;
+			void main() {
+				vColor = color;
+				vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );
+				gl_PointSize = size * ( 300.0 / -mvPosition.z );
+				gl_Position = projectionMatrix * mvPosition;
+			}
+</script>
+
+<script type="x-shader/x-fragment" id="fragmentshader">
+			uniform sampler2D texture;
+			varying vec3 vColor;
+			void main() {
+				gl_FragColor = vec4( vColor, 1.0 );
+				gl_FragColor = gl_FragColor * texture2D( texture, gl_PointCoord );
+			}
+</script>
+```
 
 ### Result
 #### Image of Initial Rendering 
