@@ -29,9 +29,12 @@ function init() {
  // set up lighting
   var light_ambient = new THREE.AmbientLight(0xffffff, 0.3);
   scene.add(light_ambient);
+
+
   var light_point = new THREE.PointLight(0xffffff, 0.4);
   light_point.position.set(camera.position.x, camera.position.y, camera.position.z);
   scene.add(light_point);
+
 
   var light_hemi = new THREE.HemisphereLight( 0xffffff, 0.6 );
   light_hemi.position.set( 0, 20, 0 );
@@ -465,17 +468,6 @@ function init() {
   scene.add(body_group);
 
 
-  // set up ground
-  var groundGeo = new THREE.PlaneBufferGeometry( 10000, 10000 );
-  var groundMat = new THREE.MeshPhongMaterial( { color: 0xffffff, specular: 0x050505 } );
-  groundMat.color.setHSL( 1, 1, 1 );
-  var ground = new THREE.Mesh( groundGeo, groundMat );
-  ground.rotation.x = - Math.PI / 2;
-  ground.position.y = - 33;
-  scene.add( ground );
-  ground.receiveShadow = true;
-
-
   // set up gui sliders
   var gui = new dat.GUI();
   gui.width = 400;
@@ -524,7 +516,7 @@ function init() {
   h.add(right_ankle_group.rotation, "x", -Math.PI/4, Math.PI/2, 2*Math.PI/32).name("Right Ankle X Rotation");
   h.add(right_ankle_group.rotation, "z", -Math.PI/3, Math.PI/3, 2*Math.PI/32).name("Right Ankle Z Rotation");
 
-  // set up mesh and grid
+  // set up ground
   var mesh = new THREE.Mesh( new THREE.PlaneBufferGeometry( 2000, 2000 ), new THREE.MeshPhongMaterial( { color: 0x999999, depthWrite: false } ) );
   mesh.rotation.x = - Math.PI / 2;
   scene.add( mesh );
@@ -577,3 +569,5 @@ function render() {
   geometry.attributes.size.needsUpdate = true;
   renderer.render( scene, camera );
 }
+
+
