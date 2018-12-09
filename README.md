@@ -3,21 +3,20 @@
 
 ### Description
 
+
 ### Sources
+#### Source 1 from threejs.org/examples: Animated Robot Model
 
-#### Source 1 from threejs.org
-[Link to animated robot model](https://threejs.org/examples/#webgl_animation_skinning_morph)
+[Link to view Animated Robot Model example](https://threejs.org/examples/#webgl_animation_skinning_morph)
 
-Code for source 1
-[Link](https://github.com/mrdoob/three.js/blob/master/examples/webgl_animation_skinning_morph.html)
+[Link to code for Animated Robot Model example](https://github.com/mrdoob/three.js/blob/master/examples/webgl_animation_skinning_morph.html)
 
-#### Source 2 from threejs.org
-[Link](https://threejs.org/examples/#webgl_lights_hemisphere)
+#### Source 2 from threejs.org/examples: Lighting and Shadows
+[Link to view Lighting and Shadows example ](https://threejs.org/examples/#webgl_lights_hemisphere)
 
-Code for source 2
-[Link](https://github.com/mrdoob/three.js/blob/master/examples/webgl_lights_hemisphere.html)
+[Link to code for Lighting and Shadows example](https://github.com/mrdoob/three.js/blob/master/examples/webgl_lights_hemisphere.html)
 
-##### Source 3 from threejs.org
+##### Source 3 from threejs.org/examples: Simple Particle System
 [Link](https://threejs.org/examples/?q=par#webgl_buffergeometry_custom_attributes_particles)
 
 Code for source 3
@@ -25,25 +24,10 @@ Code for source 3
 
 ### Implementation
 
+
 ### Result
+#### Image of Initial Rendering 
+![Image of Initial Rendering](https://lanicholas-loyola.tinytake.com/media/8fef39?filename=1544373202999_09-12-2018-11-33-21.png&sub_type=thumbnail_preview&type=attachment&width=1199&height=564)
 
-![Image](https://lanicholas-loyola.tinytake.com/media/8fef39?filename=1544373202999_09-12-2018-11-33-21.png&sub_type=thumbnail_preview&type=attachment&width=1199&height=564)
-
-
-
-
-```markdown
-Syntax highlighted code block
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+#### Video of Animation and using GUI
+![Video of Animation and using GUI](https://tinytake.s3.amazonaws.com/pulse/lanicholas-loyola/attachments/9432960/TinyTake09-12-2018-11-48-37.mp4)
