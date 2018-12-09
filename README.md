@@ -2,10 +2,9 @@
 ## By: Lillian Nicholas
 
 ### Description
-For my CS486 final project, I chose to manually model a robot. The modeling heirarchy of my model has a depth of four and my model includes the following primitives: boxes, spheres, and cylinders. My project also includes a GUI, which allows the viewer to ajdust the lighting of the scene and the position the robot is in. The viewer has the option the adjust the ambient and point light intensity as well as the y rotation of the neck and the x and z rotation of the left and right shoulders, elbows, wrists, hips, knees, and ankles.
+For my CS486 final project, I chose to manually model a robot. The modeling heirarchy of my model has a depth of four and my model includes the following primitives: boxes, spheres, and cylinders. My project includes a GUI, which allows the viewer to ajdust the lighting of the scene and the position the robot is in. The viewer has the option the adjust the ambient and point light intensity as well as the y rotation of the neck and the x and z rotation of the left and right shoulders, elbows, wrists, hips, knees, and ankles. In my project, I also included shadows on the floor of the scene derived from a directional light source and an animated particle system, which is the background of the scene.
 
 ### Sources
-
 #### Source 1 from threejs.org/examples: Animated Robot Model
 [Link to view Animated Robot Model example](https://threejs.org/examples/#webgl_animation_skinning_morph)
 
@@ -25,7 +24,6 @@ For my CS486 final project, I chose to manually model a robot. The modeling heir
 
 
 ### Result
-
 #### Image of Initial Rendering 
 ![Image of Initial Rendering](https://lanicholas-loyola.tinytake.com/media/8fef39?filename=1544373202999_09-12-2018-11-33-21.png&sub_type=thumbnail_preview&type=attachment&width=1199&height=564)
 
