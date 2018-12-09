@@ -6,7 +6,7 @@
 ### Sources
 
 #### Source 1 from threejs.org
-[Link](https://threejs.org/examples/#webgl_animation_skinning_morph)
+[Link to animated robot model](https://threejs.org/examples/#webgl_animation_skinning_morph)
 
 Code for source 1
 [Link](https://github.com/mrdoob/three.js/blob/master/examples/webgl_animation_skinning_morph.html)
