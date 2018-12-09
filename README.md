@@ -16,12 +16,12 @@ For my CS486 final project, I chose to manually model a robot. The modeling heir
 [Link to code for Lighting and Shadows example](https://github.com/mrdoob/three.js/blob/master/examples/webgl_lights_hemisphere.html)
 
 #### Source 3 from threejs.org/examples: Simple Particle System
-[Link to view Simple Particle System](https://threejs.org/examples/?q=par#webgl_buffergeometry_custom_attributes_particles)
+[Link to view Simple Particle System example](https://threejs.org/examples/?q=par#webgl_buffergeometry_custom_attributes_particles)
 
-[Link to code for Simple Particle System](https://github.com/mrdoob/three.js/blob/master/examples/webgl_buffergeometry_custom_attributes_particles.html)
+[Link to code for Simple Particle System example](https://github.com/mrdoob/three.js/blob/master/examples/webgl_buffergeometry_custom_attributes_particles.html)
 
 ### Implementation
-
+To implement my project, I referenced the code from labs 4 and 5 and the code from the three.js examples listed above. 
 
 ### Result
 #### Image of Initial Rendering 
