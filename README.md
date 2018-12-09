@@ -62,25 +62,84 @@ dirLight.shadow.bias = - 0.0001;
 However, I altered the color and position of both of these lights in order to get the effect I desired. Also, I set the castShadow property for each primitve to true and the recieveShadow property for the ground to true, which allowed the shadow to render properly. Then, I added the particle system to the background of the scene. To do this, I first added the following javascript code from source 3 to my .html file. 
 ```
 <script type="x-shader/x-vertex" id="vertexshader">
-			attribute float size;
-			varying vec3 vColor;
-			void main() {
-				vColor = color;
-				vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );
-				gl_PointSize = size * ( 300.0 / -mvPosition.z );
-				gl_Position = projectionMatrix * mvPosition;
-			}
+	attribute float size;
+	varying vec3 vColor;
+	void main()
+	{
+		vColor = color;
+		vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );
+		gl_PointSize = size * ( 300.0 / -mvPosition.z );
+		gl_Position = projectionMatrix * mvPosition;
+	}
 </script>
 
 <script type="x-shader/x-fragment" id="fragmentshader">
-			uniform sampler2D texture;
-			varying vec3 vColor;
-			void main() {
-				gl_FragColor = vec4( vColor, 1.0 );
-				gl_FragColor = gl_FragColor * texture2D( texture, gl_PointCoord );
-			}
+	uniform sampler2D texture;
+	varying vec3 vColor;
+	void main()
+	{
+		gl_FragColor = vec4( vColor, 1.0 );
+		gl_FragColor = gl_FragColor * texture2D( texture, gl_PointCoord );
+	}
 </script>
 ```
+Next I added the particle system to the scene. To do this, I used the following piece of code from source 3.
+
+```
+var particles = 100000;
+
+uniforms = {
+	texture: { value: new THREE.TextureLoader().load( "textures/sprites/spark1.png" ) }
+};
+
+var shaderMaterial = new THREE.ShaderMaterial( {
+	uniforms: uniforms,
+	vertexShader: document.getElementById( 'vertexshader' ).textContent,
+	fragmentShader: document.getElementById( 'fragmentshader' ).textContent,
+	blending: THREE.AdditiveBlending,
+	depthTest: false,
+	transparent: true,
+	vertexColors: true
+} );
+
+var radius = 200;
+geometry = new THREE.BufferGeometry();
+var positions = [];
+var colors = [];
+var sizes = [];
+var color = new THREE.Color();
+
+for ( var i = 0; i < particles; i ++ ) {
+	positions.push( ( Math.random() * 2 - 1 ) * radius );
+	positions.push( ( Math.random() * 2 - 1 ) * radius );
+	positions.push( ( Math.random() * 2 - 1 ) * radius );
+	color.setHSL( i / particles, 1.0, 0.5 );
+	colors.push( color.r, color.g, color.b );
+	sizes.push( 20 );
+}
+
+geometry.addAttribute( 'position', new THREE.Float32BufferAttribute( positions, 3 ) );
+geometry.addAttribute( 'color', new THREE.Float32BufferAttribute( colors, 3 ) );
+geometry.addAttribute( 'size', new THREE.Float32BufferAttribute( sizes, 1 ).setDynamic( true ) );
+particleSystem = new THREE.Points( geometry, shaderMaterial );
+scene.add( particleSystem );
+```
+However, I changed the transparent property of the shaderMaterial to false so that the particles would not show up on the robot. Also, to avoid particles appearing on the shadow, the ground and grid are the last items added to the scene before it is rendered. Next, I added animation to the particle system. To do this, I added my own animate function and the render function found in the code for source 3. 
+
+```
+function render()
+{
+	var time = Date.now() * 0.005;
+	particleSystem.rotation.z = 0.01 * time;
+	var sizes = geometry.attributes.size.array;
+	for ( var i = 0; i < particles; i ++ ) {
+		sizes[ i ] = 10 * ( 1 + Math.sin( 0.1 * i + time ) );
+	}
+	geometry.attributes.size.needsUpdate = true;
+	renderer.render( scene, camera );
+}
+```
+Lastly, I coded the animate function which consists of the following three function calls: RequestAnimationFrame(), render(), and stats.update();.
 
 ### Result
 #### Image of Initial Rendering 
