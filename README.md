@@ -19,7 +19,6 @@
 #### Source 3 from threejs.org/examples: Simple Particle System
 [Link to view Simple Particle System](https://threejs.org/examples/?q=par#webgl_buffergeometry_custom_attributes_particles)
 
-Code for source 3
 [Link to code for Simple Particle System](https://github.com/mrdoob/three.js/blob/master/examples/webgl_buffergeometry_custom_attributes_particles.html)
 
 ### Implementation
