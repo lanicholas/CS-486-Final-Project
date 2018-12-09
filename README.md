@@ -139,7 +139,7 @@ function render()
 	renderer.render( scene, camera );
 }
 ```
-Lastly, I coded the animate function which consists of the following three function calls: requestAnimationFrame(), render(), and stats.update();.
+Lastly, I coded the animate function which consists of the following three function calls: requestAnimationFrame(), render(), and stats.update();. While implementing my project, I had only one technical difficulty and it was viewing my project in Google Chrome. When I tried to this, I got the following error:  Access to image at 'file:///C:/Users/Paige%20Nicholas/Documents/CS%20486%20final%20project/spark1.png' from origin 'null' has been blocked by CORS policy. I solved this problem by viewing my project in Microsoft Edge because it was able to access the image spark1.png and display it properly.
 
 ### Result
 #### Image of Initial Rendering 
